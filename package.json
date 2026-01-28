@@ -1,0 +1,24 @@
+{
+  "name": "esamesessione5",
+  "version": "1.0.0",
+  "description": "Esame Finale della Sessione 5 del Corso di FullStack Development dell'Accademia CODE",
+  "homepage": "https://github.com/mat-ematics/EsameFinale_05#readme",
+  "bugs": {
+    "url": "https://github.com/mat-ematics/EsameFinale_05/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mat-ematics/EsameFinale_05.git"
+  },
+  "license": "ISC",
+  "author": "crng",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/node": "^25.1.0",
+    "rxjs": "^7.8.2"
+  }
+}
