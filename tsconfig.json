@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
-        "target": "es2020",
-        "module": "nodenext",
-        "moduleResolution": "nodenext",
+        "target": "es6",
         "strict": true,
+        "outDir": "./js",
     }
 }
