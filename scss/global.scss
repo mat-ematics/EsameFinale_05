@@ -1,0 +1,76 @@
+@use 'variables' as var;
+@forward 'variables';
+@use 'sass:color';
+
+/* GLOBAL STYLE CLASSES */
+
+.color-brand {
+    color: var.$brand-color;
+}
+
+.color-brand-dark {
+    color: color.adjust(var.$brand-color, $lightness: -10%) !important;
+}
+
+.bg-brand, .btn-brand {
+    background-color: var.$brand-color;
+}
+
+.btn-brand:hover, .btn-brand:active {
+    background-color: color.adjust(var.$brand-color, $lightness: -10%) !important;
+    border-color: rgba($color: #000000, $alpha: 0.0) !important;
+}
+
+.logo-small {
+    height: 40px;
+}
+
+.label-gray-subtle::placeholder {
+    color: gray;
+}
+
+.image-full-cover {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.fs-sm {
+    font-size: var.$font-size-small;
+}
+
+.fs-big {
+    font-size: var.$font-size-big;
+}
+
+/* GENERAL ELEMENTS STYLE */
+
+body {
+    background-color: var.$bg-dark-custom;
+}
+
+/* HEADER/NAVBAR STYLES */
+
+header {
+    background-color: var.$footer-bg-dark-custom;
+}
+
+.navbar-brand-img {
+    height: 35px;
+}
+
+.nav-dropdown .dropdown-item:hover, .nav-dropdown .dropdown-item:focus {
+    background-color: var.$brand-color !important;
+}
+
+/* FOOTER STYLES */
+
+footer {
+    background-color: var.$footer-bg-dark-custom;
+
+    * {
+        color: gray;
+        text-decoration: none;
+    }
+}
