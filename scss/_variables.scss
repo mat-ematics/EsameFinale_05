@@ -1,7 +1,15 @@
+@use 'sass:color';
+
 $footer-bg-dark-custom: #212121;
 $bg-dark-custom: #181818;
 $brand-color: #ff0066;
 $brand-color-secondary: #efb7d2;
 
+$text-secondary-color: rgb(108,117,125);
+
 $font-size-small: 13px;
 $font-size-big: 60px;
+
+$focus-ring-brand-color: color.scale($brand-color, $lightness: 20%);
+$focus-ring-brand-border: $brand-color;
+$focus-ring-brand-shadow: 0 0 0 .25rem rgba($focus-ring-brand-color, .25);
