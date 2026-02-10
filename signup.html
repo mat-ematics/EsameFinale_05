@@ -38,19 +38,19 @@
             </div>
         </nav>
     </header>
-    <main class="d-flex justify-content-center align-items-center min-vh-100 p-5">
-        <form action="#" method="post" id="formSignup" class="bg-dark p-5 rounded">
+    <main class="d-flex justify-content-center align-items-center min-vh-100 py-5 px-3 px-sm-5">
+        <form action="#" method="post" id="formSignup" class="bg-dark p-4 p-sm-5 rounded">
 
             <!-- Form Title -->
            <h3 class="text-center mb-4">Sign Up</h3>
 
             <!-- Name & Surname -->
-            <div class="row mb-3">
-                <div class="col">
+            <div class="row mb-md-3">
+                <div class="col-12 col-md-6 mb-3 mb-3 mb-md-0">
                     <label class="form-label" for="inputName">Name</label>
                     <input type="text" name="name" class="form-control" id="inputName" placeholder="John" required>
                 </div>
-                <div class="col">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
                     <label class="form-label" for="inputSurname">Surname</label>
                     <input type="text" name="surname" class="form-control" id="inputSurname" placeholder="Doe" required>
                 </div>
@@ -129,12 +129,12 @@
                 <input type="text" name="street_address" class="form-control" id="inputAddress" placeholder="Main Street" required>
             </div>
 
-            <div class="row mb-3">
-                <div class="col">
+            <div class="row mb-md-3">
+                <div class="col-12 col-md-6 mb-3 mb-3 mb-md-0">
                     <label class="form-label" for="inputHouseNumber">House Number</label>
                     <input type="text" name="house_number" class="form-control" id="inputHouseNumber" placeholder="123" required>
                 </div>
-                <div class="col">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
                     <label class="form-label" for="inputCap">CAP</label>
                     <input type="text" name="cap" class="form-control" id="inputCap" placeholder="00000" required>
                 </div>
@@ -160,13 +160,13 @@
             <!-- Credit -->
             <div class="mb-4">
                 <label class="form-label" for="inputCredit">Initial Credit</label>
-                <div class="input-group">
+                <div class="input-group input-group-credit">
                     <input
                         type="text"
                         inputmode="decimal"
                         name="credit"
                         id="inputCredit"
-                        class="form-control w-80"
+                        class="form-control"
                         min="0.01"
                         step="0.01"
                         placeholder="0.00"
