@@ -1,44 +1,34 @@
-/* --- TYPES --- */
-
-export type ValidationErrorCode = 
-    | "REQUIRED"
-    | "INVALID_EMAIL"
-    | "INVALID_PASSWORD"
-    | "INVALID_DATE"
-    | "MUNICIPALITY_REQUIRED"
-    | "INVALID_CAP"
-    | "INVALID_CREDIT"
-
+import type { ValidationErrorCode } from "../validation/error_codes";
 
 /* --- INTERFACES --- */
 
 export interface RegistrationFormData {
-    name: string
-    surname: string
-    email: string
-    username: string
-    password: string
-    birthdate: string
-    gender: string
-    countryId: string
-    italianMunicipalityId?: number
-    streetAddress: string
-    houseNumber: string
-    cap: string
-    locality?: string
-    additionalInfo?: string
-    credit: string
-    currency: "EUR" | "USD"
+    name: string,
+    surname: string,
+    email: string,
+    username: string,
+    password: string,
+    birthdate: string,
+    gender: string,
+    countryId: string,
+    italianMunicipalityId?: number,
+    streetAddress: string,
+    houseNumber: string,
+    cap: string,
+    locality?: string,
+    additionalInfo?: string,
+    credit: string,
+    currency: "EUR" | "USD",
 }
 
 export interface FieldValidationResult {
     isValid: boolean,
-    errorCode?: ValidationErrorCode,
+    errorCode: ValidationErrorCode | null,
 }
 
 export interface FormValidationResult {
     isValid: boolean,
     fields: {
-        [K in keyof RegistrationFormData]?: FieldValidationResult
+        [K in keyof RegistrationFormData]?: FieldValidationResult;
     }
 }
