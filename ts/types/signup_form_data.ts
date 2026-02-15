@@ -1,5 +1,3 @@
-import type { ValidationErrorCode } from "../validation/error_codes";
-
 /* --- INTERFACES --- */
 
 export interface RegistrationFormData {
@@ -19,16 +17,4 @@ export interface RegistrationFormData {
     additionalInfo?: string,
     credit: string,
     currency: "EUR" | "USD",
-}
-
-export interface FieldValidationResult {
-    isValid: boolean,
-    errorCode: ValidationErrorCode | null,
-}
-
-export interface FormValidationResult {
-    isValid: boolean,
-    fields: {
-        [K in keyof RegistrationFormData]?: FieldValidationResult;
-    }
 }
