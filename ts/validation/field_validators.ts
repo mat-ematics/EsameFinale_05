@@ -61,7 +61,7 @@ export function validateDate(date: string | Date) : FieldValidationResult {
     }
 
     if (getAge(date) < 18) {
-        return {isValid: false, errorCode: 'INVALID_DATE'}
+        return {isValid: false, errorCode: ErrorCodes.INVALID_DATE}
     }
 
     return validFieldResult;
