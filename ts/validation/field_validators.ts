@@ -1,6 +1,6 @@
 import { FieldValidationResult, validFieldResult } from "./validation_types";
 import { CAPPattern, emailPattern, getAge, isEmpty, passwordPattern, usernamePattern } from "../utils/helpers";
-import { ErrorCodes } from "./error_codes";
+import { ErrorCodes, ValidationErrorCode } from "./error_codes";
 
 
 /* ALWAYS RETURN FieldValidationReturn */
@@ -12,56 +12,47 @@ export function validateRequired(value: unknown) : FieldValidationResult {
 export function validateText(
         text: string, 
         options?: Partial<{
+            required: boolean,
             minlength: number,
             maxlength: number,
             pattern: RegExp,
-            required: boolean,
+            formatErrorCode: ValidationErrorCode,
         }>
     ) : FieldValidationResult {
 
+        const value = text.trim();
         const required = options?.required ?? true;
+        const formatErrorCode = options?.formatErrorCode ?? ErrorCodes.INVALID_FORMAT;
 
-        if (required && !isEmpty(text)) {
+        if (required && isEmpty(value)) {
             return {isValid: false, errorCode: ErrorCodes.REQUIRED}
         }
 
-        if (options?.minlength !== undefined && text.length < options.minlength) {
-            return {isValid: false, errorCode: ErrorCodes.INVALID_FORMAT}
+        if (options?.minlength !== undefined && value.length < options.minlength) {
+            return {isValid: false, errorCode: formatErrorCode}
         }
 
-        if (options?.maxlength !== undefined && text.length > options.maxlength) {
-            return {isValid: false, errorCode: ErrorCodes.INVALID_FORMAT}
+        if (options?.maxlength !== undefined && value.length > options.maxlength) {
+            return {isValid: false, errorCode: formatErrorCode}
         }
 
-        if (options?.pattern !== undefined && !options.pattern.test(text)) {
-            return {isValid: false, errorCode: ErrorCodes.INVALID_FORMAT}
+        if (options?.pattern !== undefined && !options.pattern.test(value)) {
+            return {isValid: false, errorCode: formatErrorCode}
         }
 
         return validFieldResult
 }
 
-export function validateEmail(email: string) : FieldValidationResult {
-    if (isEmpty(email)) {
-        return {isValid: false, errorCode: ErrorCodes.REQUIRED}
-    }
-
-    return emailPattern.test(email) ? validFieldResult : {isValid: false, errorCode: ErrorCodes.INVALID_EMAIL} 
+export const validateEmail = (email: string) : FieldValidationResult => {
+    return validateText(email, {pattern: emailPattern, formatErrorCode: ErrorCodes.INVALID_EMAIL});
 }
 
-export function validateUsername(username: string) : FieldValidationResult {
-    if (isEmpty(username)) {
-        return {isValid: false, errorCode: ErrorCodes.REQUIRED}
-    }
-
-    return usernamePattern.test(username) ? validFieldResult : {isValid: false, errorCode: ErrorCodes.INVALID_USERNAME}
+export const validateUsername = (username: string) : FieldValidationResult => {
+    return validateText(username, {pattern: usernamePattern, formatErrorCode: ErrorCodes.INVALID_USERNAME});
 }
 
-export function validatePassword(password: string) : FieldValidationResult {
-    if (isEmpty(password)) {
-        return {isValid: false, errorCode: ErrorCodes.REQUIRED}
-    }
-
-    return passwordPattern.test(password) ? validFieldResult : {isValid: false, errorCode: ErrorCodes.WEAK_PASSWORD} 
+export const validatePassword = (password: string) : FieldValidationResult => {
+    return validateText(password, {pattern: passwordPattern, formatErrorCode: ErrorCodes.INVALID_PASSWORD});
 }
 
 export function validateBirthDate(date: string | Date) : FieldValidationResult {
@@ -79,18 +70,9 @@ export function validateBirthDate(date: string | Date) : FieldValidationResult {
 export function validateSelect(value: string) : FieldValidationResult {
     return isEmpty(value) ? {isValid: false, errorCode: ErrorCodes.REQUIRED} : validFieldResult
 }
-export function validateCAP(cap: string | number) : FieldValidationResult {
-    cap = String(cap);
 
-    if (isEmpty(cap)) {
-        return {isValid: false, errorCode: ErrorCodes.REQUIRED}
-    }
-
-    if (!CAPPattern.test(cap)) {
-        return {isValid: false, errorCode: ErrorCodes.INVALID_CAP}
-    }
-
-    return validFieldResult;
+export const validateCAP = (cap: string | number) : FieldValidationResult => {
+    return validateText(String(cap), {pattern: CAPPattern, formatErrorCode: ErrorCodes.INVALID_CAP});
 }
 
 export function validateCredit(credit: string | number) : FieldValidationResult {
