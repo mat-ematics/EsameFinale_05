@@ -1,5 +1,5 @@
 import { FieldValidationResult, validFieldResult } from "./validation_types";
-import { emailPattern, getAge, isEmpty, passwordPattern, usernamePattern } from "../utils/helpers";
+import { CAPPattern, emailPattern, getAge, isEmpty, passwordPattern, usernamePattern } from "../utils/helpers";
 import { ErrorCodes } from "./error_codes";
 
 
@@ -19,7 +19,9 @@ export function validateText(
         }>
     ) : FieldValidationResult {
 
-        if (options?.required && !validateRequired(text).isValid) {
+        const required = options?.required ?? true;
+
+        if (required && !isEmpty(text)) {
             return {isValid: false, errorCode: ErrorCodes.REQUIRED}
         }
 
@@ -78,13 +80,13 @@ export function validateSelect(value: string) : FieldValidationResult {
     return isEmpty(value) ? {isValid: false, errorCode: ErrorCodes.REQUIRED} : validFieldResult
 }
 export function validateCAP(cap: string | number) : FieldValidationResult {
-    if (isEmpty(String(cap))) {
+    cap = String(cap);
+
+    if (isEmpty(cap)) {
         return {isValid: false, errorCode: ErrorCodes.REQUIRED}
     }
 
-    cap = Number(cap);
-
-    if (!Number.isInteger(cap)) {
+    if (!CAPPattern.test(cap)) {
         return {isValid: false, errorCode: ErrorCodes.INVALID_CAP}
     }
 
