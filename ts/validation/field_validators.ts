@@ -1,5 +1,5 @@
 import { FieldValidationResult, validFieldResult } from "./validation_types";
-import { emailPattern, getAge, isEmpty, passwordPattern } from "../utils/helpers";
+import { emailPattern, getAge, isEmpty, passwordPattern, usernamePattern } from "../utils/helpers";
 import { ErrorCodes } from "./error_codes";
 
 
@@ -11,7 +11,7 @@ export function validateRequired(value: unknown) : FieldValidationResult {
 
 export function validateText(
         text: string, 
-        options: Partial<{
+        options?: Partial<{
             minlength: number,
             maxlength: number,
             pattern: RegExp,
@@ -46,22 +46,30 @@ export function validateEmail(email: string) : FieldValidationResult {
     return emailPattern.test(email) ? validFieldResult : {isValid: false, errorCode: ErrorCodes.INVALID_EMAIL} 
 }
 
+export function validateUsername(username: string) : FieldValidationResult {
+    if (isEmpty(username)) {
+        return {isValid: false, errorCode: ErrorCodes.REQUIRED}
+    }
+
+    return usernamePattern.test(username) ? validFieldResult : {isValid: false, errorCode: ErrorCodes.INVALID_USERNAME}
+}
+
 export function validatePassword(password: string) : FieldValidationResult {
     if (isEmpty(password)) {
         return {isValid: false, errorCode: ErrorCodes.REQUIRED}
     }
 
-    return passwordPattern.test(password) ? validFieldResult : {isValid: false, errorCode: ErrorCodes.INVALID_PASSWORD} 
+    return passwordPattern.test(password) ? validFieldResult : {isValid: false, errorCode: ErrorCodes.WEAK_PASSWORD} 
 }
 
-export function validateDate(date: string | Date) : FieldValidationResult {
+export function validateBirthDate(date: string | Date) : FieldValidationResult {
 
     if (isEmpty(String(date))) {
         return {isValid: false, errorCode: ErrorCodes.REQUIRED}
     }
 
     if (getAge(date) < 18) {
-        return {isValid: false, errorCode: ErrorCodes.INVALID_DATE}
+        return {isValid: false, errorCode: ErrorCodes.DATE_TOO_YOUNG}
     }
 
     return validFieldResult;
