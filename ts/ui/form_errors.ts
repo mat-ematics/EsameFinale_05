@@ -1,4 +1,4 @@
-import { RegistrationFormData } from "../types/signup_form_data";
+import { RegistrationFormData } from "../types/registration_form_data";
 import { ValidationErrorCode } from "../validation/error_codes";
 
 //ADD DEFUALT ERROR MESSAGE FALLBACK?
