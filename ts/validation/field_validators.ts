@@ -1,5 +1,5 @@
 import { FieldValidationResult, validFieldResult } from "./validation_types";
-import { CAPPattern, emailPattern, getAge, isEmpty, passwordPattern, usernamePattern } from "../utils/helpers";
+import { CAPPattern, emailPattern, getAge, isEmpty, namePattern, passwordPattern, usernamePattern } from "../utils/helpers";
 import { ErrorCodes, ValidationErrorCode } from "./error_codes";
 
 
@@ -41,6 +41,10 @@ export function validateText(
         }
 
         return validFieldResult
+}
+
+export const validateName = (name: string) : FieldValidationResult => {
+    return validateText(name, {pattern: namePattern})
 }
 
 export const validateEmail = (email: string) : FieldValidationResult => {
