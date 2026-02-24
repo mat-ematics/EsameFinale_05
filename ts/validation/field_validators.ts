@@ -29,11 +29,11 @@ export function validateText(
         }
 
         if (options?.minlength !== undefined && value.length < options.minlength) {
-            return {isValid: false, errorCode: formatErrorCode}
+            return {isValid: false, errorCode: ErrorCodes.TOO_SHORT}
         }
 
         if (options?.maxlength !== undefined && value.length > options.maxlength) {
-            return {isValid: false, errorCode: formatErrorCode}
+            return {isValid: false, errorCode: ErrorCodes.TOO_LONG}
         }
 
         if (options?.pattern !== undefined && !options.pattern.test(value)) {
@@ -44,7 +44,7 @@ export function validateText(
 }
 
 export const validateName = (name: string) : FieldValidationResult => {
-    return validateText(name, {pattern: namePattern})
+    return validateText(name, {minlength: 3, pattern: namePattern})
 }
 
 export const validateEmail = (email: string) : FieldValidationResult => {
@@ -52,7 +52,12 @@ export const validateEmail = (email: string) : FieldValidationResult => {
 }
 
 export const validateUsername = (username: string) : FieldValidationResult => {
-    return validateText(username, {pattern: usernamePattern, formatErrorCode: ErrorCodes.INVALID_USERNAME});
+    return validateText(username, {
+        minlength: 3,
+        maxlength: 32,
+        pattern: usernamePattern,
+        formatErrorCode: ErrorCodes.INVALID_USERNAME
+    });
 }
 
 export const validatePassword = (password: string) : FieldValidationResult => {

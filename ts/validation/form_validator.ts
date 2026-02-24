@@ -19,6 +19,8 @@ export function validateRegistrationForm(data: RegistrationFormData) : FormValid
         streetAddress: validateText(data.streetAddress),
         houseNumber: validateText(data.houseNumber),
         cap: validateCAP(data.cap),
+        locality: validateText(data.locality ?? '', {required: false}),
+        additionalInfo: validateText(data.additionalInfo ?? '', {required: false}),
         credit: validateCredit(data.credit),
         currency: validateSelect(data.currency),
     }
