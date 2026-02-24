@@ -2,8 +2,15 @@ import { FieldValidationResult, validFieldResult } from "./validation_types";
 import { CAPPattern, emailPattern, getAge, isEmpty, namePattern, passwordPattern, usernamePattern } from "../utils/helpers";
 import { ErrorCodes, ValidationErrorCode } from "./error_codes";
 
-
-/* ALWAYS RETURN FieldValidationReturn */
+export const VALIDATION_RULES = {
+    name: {
+        minLength: 3,
+    },
+    username: {
+        minLength: 3,
+        maxLength: 32,
+    },
+} as const;
 
 export function validateRequired(value: unknown) : FieldValidationResult {
     return isEmpty(String(value)) ? {isValid: false, errorCode: ErrorCodes.REQUIRED} : validFieldResult
@@ -44,7 +51,7 @@ export function validateText(
 }
 
 export const validateName = (name: string) : FieldValidationResult => {
-    return validateText(name, {minlength: 3, pattern: namePattern})
+    return validateText(name, {minlength: VALIDATION_RULES.name.minLength, pattern: namePattern})
 }
 
 export const validateEmail = (email: string) : FieldValidationResult => {
@@ -53,8 +60,8 @@ export const validateEmail = (email: string) : FieldValidationResult => {
 
 export const validateUsername = (username: string) : FieldValidationResult => {
     return validateText(username, {
-        minlength: 3,
-        maxlength: 32,
+        minlength: VALIDATION_RULES.username.minLength,
+        maxlength: VALIDATION_RULES.username.maxLength,
         pattern: usernamePattern,
         formatErrorCode: ErrorCodes.INVALID_USERNAME
     });
