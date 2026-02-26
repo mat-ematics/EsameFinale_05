@@ -1,7 +1,7 @@
 import { RegistrationFormData } from "../types/registration_form_data.js";
 import { ErrorCodes } from "./error_codes.js";
 import { validateBirthDate, validateCAP, validateCredit, validateEmail, validateName, validatePassword, validateRequired, validateSelect, validateText, validateUsername } from "./field_validators.js";
-import { cerateValidFieldResult, FormFieldsValidationResult, FormValidationResult } from "./validation_types.js";
+import { createValidFieldResult, FormFieldsValidationResult, FormValidationResult } from "./validation_types.js";
 
 
 export function validateRegistrationForm(data: RegistrationFormData) : FormValidationResult {
@@ -15,7 +15,7 @@ export function validateRegistrationForm(data: RegistrationFormData) : FormValid
         birthdate: validateBirthDate(data.birthdate),
         gender: validateSelect(data.gender),
         countryId: validateSelect(data.countryId),
-        italianMunicipalityId: cerateValidFieldResult(),
+        italianMunicipalityId: createValidFieldResult(),
         streetAddress: validateText(data.streetAddress),
         houseNumber: validateText(data.houseNumber),
         cap: validateCAP(data.cap),

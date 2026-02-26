@@ -15,7 +15,11 @@ export function getAge(birthDate: string | Date) : number {
     return age;
 }
 
+export function safeTrim(value?: string) : string {
+    return value ? value.trim() : "";
+}
+
 export function isEmpty(value: string) : boolean {
-    const trimmedValue = value.trim();
+    const trimmedValue = safeTrim(value);
     return trimmedValue === '' || trimmedValue === null || trimmedValue === undefined;
 }

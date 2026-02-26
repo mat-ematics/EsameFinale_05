@@ -1,5 +1,5 @@
 import { FieldValidationResult, validFieldResult } from "./validation_types.js";
-import { CAPPattern, emailPattern, getAge, isEmpty, namePattern, passwordPattern, usernamePattern } from "../utils/helpers.js";
+import { CAPPattern, emailPattern, getAge, isEmpty, namePattern, passwordPattern, safeTrim, usernamePattern } from "../utils/helpers.js";
 import { ErrorCodes, ValidationErrorCode } from "./error_codes.js";
 
 export const VALIDATION_RULES = {
@@ -27,7 +27,7 @@ export function validateText(
         }>
     ) : FieldValidationResult {
 
-        const value = text.trim();
+        const value = safeTrim(text);
         const required = options?.required ?? true;
         const formatErrorCode = options?.formatErrorCode ?? ErrorCodes.INVALID_FORMAT;
 

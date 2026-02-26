@@ -1,5 +1,5 @@
 import { validFieldResult } from "./validation_types.js";
-import { CAPPattern, emailPattern, getAge, isEmpty, namePattern, passwordPattern, usernamePattern } from "../utils/helpers.js";
+import { CAPPattern, emailPattern, getAge, isEmpty, namePattern, passwordPattern, safeTrim, usernamePattern } from "../utils/helpers.js";
 import { ErrorCodes } from "./error_codes.js";
 export const VALIDATION_RULES = {
     name: {
@@ -14,7 +14,7 @@ export function validateRequired(value) {
     return isEmpty(String(value)) ? { isValid: false, errorCode: ErrorCodes.REQUIRED } : validFieldResult;
 }
 export function validateText(text, options) {
-    const value = text.trim();
+    const value = safeTrim(text);
     const required = options?.required ?? true;
     const formatErrorCode = options?.formatErrorCode ?? ErrorCodes.INVALID_FORMAT;
     if (required && isEmpty(value)) {

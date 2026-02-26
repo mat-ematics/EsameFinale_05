@@ -8,7 +8,7 @@ export const validFieldResult: FieldValidationResult = {
 } as const satisfies FieldValidationResult;
 
 //Mutable ValidFieldResult Object Factory
-export const cerateValidFieldResult = (
+export const createValidFieldResult = (
     overrides?: Partial<FieldValidationResult>
 ): FieldValidationResult => ({ //() for object instead of function body
     ...validFieldResult,

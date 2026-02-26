@@ -4,7 +4,7 @@ export const validFieldResult = {
     errorCode: null,
 };
 //Mutable ValidFieldResult Object Factory
-export const cerateValidFieldResult = (overrides) => ({
+export const createValidFieldResult = (overrides) => ({
     ...validFieldResult,
     ...overrides,
 });

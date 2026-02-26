@@ -13,7 +13,10 @@ export function getAge(birthDate) {
     }
     return age;
 }
+export function safeTrim(value) {
+    return value ? value.trim() : "";
+}
 export function isEmpty(value) {
-    const trimmedValue = value.trim();
+    const trimmedValue = safeTrim(value);
     return trimmedValue === '' || trimmedValue === null || trimmedValue === undefined;
 }
