@@ -1,16 +1,15 @@
 import { RegistrationFormData } from "../types/registration_form_data";
 import { ValidationErrorCode } from "../validation/error_codes";
 
-//ADD DEFUALT ERROR MESSAGE FALLBACK?
+export type FieldName = keyof RegistrationFormData;
 
-
-type FieldName = keyof RegistrationFormData;
-
-type FieldErrorMessages = {
+export type FieldErrorMessages = {
     [K in FieldName]?: Partial<Record<ValidationErrorCode, string>>
 }
 
-export const FieldErrorMessages: FieldErrorMessages = {
+export const DEFAULT_ERROR_MESSAGE = 'Invalid Input';
+
+export const FieldErrorMessagesMap: FieldErrorMessages = {
     name: {
         REQUIRED: "Name is required",
         TOO_SHORT: "Name should be at least 3 characters long",
@@ -73,3 +72,6 @@ export const FieldErrorMessages: FieldErrorMessages = {
     }
 } as const;
 
+export function getFieldErrorMessage(field: string, errorCode?: ValidationErrorCode | null) : string  {
+    return errorCode ? FieldErrorMessagesMap[field as FieldName]?.[errorCode] ?? DEFAULT_ERROR_MESSAGE : DEFAULT_ERROR_MESSAGE;
+}
