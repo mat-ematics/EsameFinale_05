@@ -1,5 +1,5 @@
-import { FormValidationResult } from "../validation/validation_types";
-import { getFieldErrorMessage } from "./form_errors";
+import { FormValidationResult } from "../validation/validation_types.js";
+import { getFieldErrorMessage } from "./form_errors.js";
 
 export function toggleValidityClasses(element: HTMLElement, isValid: boolean) {
     element.classList.toggle('is-valid', isValid);

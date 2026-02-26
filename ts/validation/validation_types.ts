@@ -1,5 +1,5 @@
-import { RegistrationFormData } from "../types/registration_form_data";
-import { ValidationErrorCode } from "./error_codes";
+import { RegistrationFormData } from "../types/registration_form_data.js";
+import { ValidationErrorCode } from "./error_codes.js";
 
 //Immutable One-off Object
 export const validFieldResult: FieldValidationResult = {

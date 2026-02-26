@@ -1,7 +1,7 @@
-import { RegistrationFormData } from "../types/registration_form_data";
-import { ErrorCodes } from "./error_codes";
-import { validateBirthDate, validateCAP, validateCredit, validateEmail, validateName, validatePassword, validateRequired, validateSelect, validateText, validateUsername } from "./field_validators";
-import { cerateValidFieldResult, FieldValidationResult, FormFieldsValidationResult, FormValidationResult } from "./validation_types";
+import { RegistrationFormData } from "../types/registration_form_data.js";
+import { ErrorCodes } from "./error_codes.js";
+import { validateBirthDate, validateCAP, validateCredit, validateEmail, validateName, validatePassword, validateRequired, validateSelect, validateText, validateUsername } from "./field_validators.js";
+import { cerateValidFieldResult, FormFieldsValidationResult, FormValidationResult } from "./validation_types.js";
 
 
 export function validateRegistrationForm(data: RegistrationFormData) : FormValidationResult {

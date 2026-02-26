@@ -1,5 +1,5 @@
-import { RegistrationFormData } from "../types/registration_form_data";
-import { ValidationErrorCode } from "../validation/error_codes";
+import { RegistrationFormData } from "../types/registration_form_data.js";
+import { ValidationErrorCode } from "../validation/error_codes.js";
 
 export type FieldName = keyof RegistrationFormData;
 
