@@ -1,9 +1,17 @@
 import { validateRegistrationForm } from "./validation/form_validator.js";
-import { extractRegistrationFormData } from "./types/registration_form_data.js";
+import { COUNTRY_ITALY_ID, extractRegistrationFormData } from "./types/registration_form_data.js";
 import { bindForm, renderForm } from "./ui/form_rendering.js";
 
 const registrationForm = document.getElementById('formRegister') as HTMLFormElement;
 const registrationFormMap = bindForm(registrationForm);
+
+const selectCountry = document.getElementById('selectCountry') as HTMLSelectElement;
+const selectItalianMunicipality = document.getElementById('selectItalianMunicipality') as HTMLSelectElement;
+
+selectCountry.addEventListener('input', () => {
+    const value = selectCountry.value;
+    selectItalianMunicipality.disabled = value !== COUNTRY_ITALY_ID;
+});
 
 registrationForm.addEventListener("submit", e => {
     e.preventDefault();

@@ -1,3 +1,6 @@
+/* --- CONSTANTS --- */
+export const COUNTRY_ITALY_ID = '1';
+
 /* --- TYPES --- */
 
 export type gender = "male" | "female" | "other";

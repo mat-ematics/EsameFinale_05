@@ -1,4 +1,5 @@
-/* --- TYPES --- */
+/* --- CONSTANTS --- */
+export const COUNTRY_ITALY_ID = '1';
 export function extractRegistrationFormData(form) {
     const data = new FormData(form);
     return {
