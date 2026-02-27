@@ -35,16 +35,16 @@ export const FieldErrorMessagesMap = {
     gender: {
         REQUIRED: "Select a gender",
     },
-    countryId: {
+    country_id: {
         REQUIRED: "Select a country",
     },
-    italianMunicipalityId: {
+    italian_municipality_id: {
         MUNICIPALITY_REQUIRED: "Select a municipality",
     },
-    streetAddress: {
+    street_address: {
         REQUIRED: "Street address is required",
     },
-    houseNumber: {
+    house_number: {
         REQUIRED: "House number is required",
     },
     cap: {
@@ -52,7 +52,7 @@ export const FieldErrorMessagesMap = {
         INVALID_CAP: "CAP must be 5 digits",
     },
     locality: {}, //optional
-    additionalInfo: {}, //optional
+    additional_info: {}, //optional
     credit: {
         REQUIRED: "Credit is required",
         INVALID_CREDIT: "Credit must be a positive amount",

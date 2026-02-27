@@ -10,18 +10,18 @@ export function validateRegistrationForm(data) {
         password: validatePassword(data.password),
         birthdate: validateBirthDate(data.birthdate),
         gender: validateSelect(data.gender),
-        countryId: validateSelect(data.countryId),
-        italianMunicipalityId: createValidFieldResult(),
-        streetAddress: validateText(data.streetAddress),
-        houseNumber: validateText(data.houseNumber),
+        country_id: validateSelect(data.country_id),
+        italian_municipality_id: createValidFieldResult(),
+        street_address: validateText(data.street_address),
+        house_number: validateText(data.house_number),
         cap: validateCAP(data.cap),
         locality: validateText(data.locality ?? '', { required: false }),
-        additionalInfo: validateText(data.additionalInfo ?? '', { required: false }),
+        additional_info: validateText(data.additional_info ?? '', { required: false }),
         credit: validateCredit(data.credit),
         currency: validateSelect(data.currency),
     };
-    if (data.countryId === '1' && !validateRequired(data.italianMunicipalityId).isValid) {
-        fields.italianMunicipalityId = { isValid: false, errorCode: ErrorCodes.MUNICIPALITY_REQUIRED };
+    if (data.country_id === '1' && !validateRequired(data.italian_municipality_id).isValid) {
+        fields.italian_municipality_id = { isValid: false, errorCode: ErrorCodes.MUNICIPALITY_REQUIRED };
     }
     ;
     const isValid = Object.values(fields).every(({ isValid, errorCode }) => isValid);
