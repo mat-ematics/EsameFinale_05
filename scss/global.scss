@@ -4,6 +4,10 @@
 
 /* BOOTSTRAP OVERWRITES */
 
+textarea {
+    resize: none;
+}
+
 .invalid-feedback {
     display: block;
     min-height: 1.5rem;
