@@ -2,6 +2,14 @@
 @forward 'variables';
 @use 'sass:color';
 
+/* BOOTSTRAP OVERWRITES */
+
+.invalid-feedback {
+    display: block;
+    min-height: 1.5rem;
+    visibility: hidden;
+}
+
 /* GLOBAL STYLE CLASSES */
 
 .color-brand {
