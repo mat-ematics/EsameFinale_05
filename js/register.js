@@ -1,6 +1,6 @@
-import { validateRegistrationForm } from "./validation/form_validator.js";
+import { validateRegistrationField, validateRegistrationForm } from "./validation/form_validator.js";
 import { COUNTRY_ITALY_ID, extractRegistrationFormData } from "./types/registration_form_data.js";
-import { bindForm, renderForm } from "./ui/form_rendering.js";
+import { bindForm, renderMultipleRegistrationFields, renderRegistrationField, renderRegistrationForm } from "./ui/form_rendering.js";
 const registrationForm = document.getElementById('formRegister');
 const registrationFormMap = bindForm(registrationForm);
 const selectCountry = document.getElementById('selectCountry');
@@ -9,11 +9,28 @@ selectCountry.addEventListener('input', () => {
     const value = selectCountry.value;
     selectItalianMunicipality.disabled = value !== COUNTRY_ITALY_ID;
 });
+Object.entries(registrationFormMap).forEach(([field, controller]) => {
+    controller.element.addEventListener("blur", () => {
+        const data = extractRegistrationFormData(registrationForm);
+        const fieldResult = validateRegistrationField(field, data);
+        if (field === 'country_id') {
+            const municipalityResult = validateRegistrationField("italian_municipality_id", data);
+            console.log(municipalityResult);
+            renderMultipleRegistrationFields(registrationFormMap, {
+                [field]: validateRegistrationField(field, data),
+                italian_municipality_id: municipalityResult,
+            });
+        }
+        else {
+            renderRegistrationField(registrationFormMap, field, fieldResult);
+        }
+    });
+});
 registrationForm.addEventListener("submit", e => {
     e.preventDefault();
     const data = extractRegistrationFormData(registrationForm);
     const result = validateRegistrationForm(data);
-    renderForm(registrationFormMap, result);
+    renderRegistrationForm(registrationFormMap, result);
     if (result.isValid) {
         /* Send Form */
     }
