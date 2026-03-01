@@ -11,7 +11,7 @@ export function extractRegistrationFormData(form) {
         birthdate: data.get("birthdate"),
         gender: data.get("gender"),
         country_id: data.get("country_id"),
-        italian_municipality_id: data.get("italian_municipality_id"),
+        italian_municipality_id: data.get("italian_municipality_id") ?? '',
         street_address: data.get("street_address"),
         house_number: data.get("house_number"),
         cap: data.get("cap"),

@@ -5,6 +5,7 @@ export const COUNTRY_ITALY_ID = '1';
 
 export type gender = "male" | "female" | "other";
 export type currency = "EUR" | "USD";
+export type FieldName = keyof RegistrationFormData;
 
 /* --- INTERFACES --- */
 
@@ -39,7 +40,7 @@ export function extractRegistrationFormData(form: HTMLFormElement): Registration
         birthdate: data.get("birthdate") as string,
         gender: data.get("gender") as gender,
         country_id: data.get("country_id") as string,
-        italian_municipality_id: data.get("italian_municipality_id") as string,
+        italian_municipality_id: (data.get("italian_municipality_id") as string) ?? '',
         street_address: data.get("street_address") as string,
         house_number: data.get("house_number") as string,
         cap: data.get("cap") as string,

@@ -1,7 +1,5 @@
-import { RegistrationFormData } from "../types/registration_form_data.js";
+import { FieldName } from "../types/registration_form_data.js";
 import { ValidationErrorCode } from "../validation/error_codes.js";
-
-export type FieldName = keyof RegistrationFormData;
 
 export type FieldErrorMessages = {
     [K in FieldName]?: Partial<Record<ValidationErrorCode, string>>
