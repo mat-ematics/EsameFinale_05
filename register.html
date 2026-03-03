@@ -14,21 +14,28 @@
     <link rel="stylesheet" href="css/register.min.css"> <!-- Page -->
 </head>
 <body data-bs-theme="dark">
+    <!-- Header -->
     <header>
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
+                <!-- Logo -->
                 <a class="navbar-brand" href="#">
                     <img class="navbar-brand-img" src="media/images/brand_code_light.png" alt="Logo di CODEX">
                 </a>
+                <!-- Hamburger Menu Button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Hamburger Menu -->
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <!-- Home Page -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home Page</a>
                         </li>
                     </ul>
+                    <!-- Sign In -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="#" class="btn bg-brand" role="button">Sign In</a>
@@ -38,6 +45,9 @@
             </div>
         </nav>
     </header>
+
+
+    <!-- Main -->
     <main class="d-flex justify-content-center align-items-center min-vh-100 py-5 px-3 px-sm-5">
         <form action="#" method="post" id="formRegister" class="bg-dark p-4 p-sm-5 rounded" novalidate>
 
@@ -46,14 +56,18 @@
 
             <!-- Name & Surname -->
             <div class="row mb-md-3">
+                <!-- Name -->
                 <div class="col-12 col-md-6 mb-3 mb-3 mb-md-0">
                     <label class="form-label" for="inputName">Name</label>
                     <input type="text" name="name" id="inputName" class="form-control" placeholder="John" required>
+                    <!-- Invalid Feedback -->
                     <div class="invalid-feedback" data-error-for="name"></div>
                 </div>
+                <!-- Surname -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
                     <label class="form-label" for="inputSurname">Surname</label>
                     <input type="text" name="surname" id="inputSurname" class="form-control" placeholder="Doe" required>
+                    <!-- Invalid Feedback -->
                     <div class="invalid-feedback" data-error-for="surname"></div>
                 </div>
             </div>
@@ -62,6 +76,7 @@
             <div class="mb-3">
                 <label class="form-label" for="inputEmail">E-mail</label>
                 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="john.doe@example.com" required>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="email"></div>
             </div>
 
@@ -77,6 +92,7 @@
                     placeholder="e.g. jd1999" 
                     required
                 >
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="username"></div>
             </div>
 
@@ -92,9 +108,11 @@
                     placeholder="Choose a Secure Password"
                     required
                 >
+                <!-- Password Help Hint -->
                 <div id="passwordHelp" class="form-text">
                     Min 8 characters, including uppercase, lowercase, number and special character (#?!@$%^&*-).
                 </div>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="password"></div>
             </div>
 
@@ -102,6 +120,7 @@
             <div class="mb-3">
                 <label class="form-label" for="inputBirthdate">Birthdate</label>
                 <input type="date" name="birthdate" id="inputBirthdate" class="form-control" required>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="birthdate"></div>
             </div>
 
@@ -114,6 +133,7 @@
                     <option value="female">Female</option>
                     <option value="other">Other/Prefer not to Say</option>
                 </select>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="gender"></div>
             </div>
 
@@ -126,10 +146,11 @@
                     <option value="2">France</option>
                     <option value="3">Germany</option>
                 </select>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="country_id"></div>
             </div>
 
-            <!-- Italian Municipality (optional) -->
+            <!-- Italian Municipality -->
             <div class="mb-3">
                 <label class="form-label" for="selectItalianMunicipality">Italian Municipality</label>
                 <select name="italian_municipality_id" id="selectItalianMunicipality" class="form-select" disabled>
@@ -137,6 +158,7 @@
                     <option value="101">Rome</option>
                     <option value="102">Milan</option>
                 </select>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="italian_municipality_id"></div>
             </div>
 
@@ -144,18 +166,24 @@
             <div class="mb-3">
                 <label class="form-label" for="inputAddress">Street Address</label>
                 <input type="text" name="street_address" id="inputAddress" class="form-control" placeholder="Main Street" required>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="street_address"></div>
             </div>
 
+            <!-- House Info -->
             <div class="row mb-md-3">
+                <!-- House Number -->
                 <div class="col-12 col-md-6 mb-3 mb-3 mb-md-0">
                     <label class="form-label" for="inputHouseNumber">House Number</label>
                     <input type="text" name="house_number" id="inputHouseNumber" class="form-control" placeholder="123" required>
+                    <!-- Invalid Feedback -->
                     <div class="invalid-feedback" data-error-for="house_number"></div>
                 </div>
+                <!-- CAP -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
                     <label class="form-label" for="inputCap">CAP</label>
                     <input type="text" name="cap" id="inputCap" class="form-control" placeholder="00000" required>
+                    <!-- Invalid Feedback -->
                     <div class="invalid-feedback" data-error-for="cap"></div>
                 </div>
             </div>
@@ -164,6 +192,7 @@
             <div class="mb-3">
                 <label class="form-label" for="inputLocality">Locality</label>
                 <input type="text" name="locality" id="inputLocality" class="form-control" placeholder="City">
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="locality"></div>
             </div>
 
@@ -177,6 +206,7 @@
                     rows="3"
                     placeholder="More information here..."
                 ></textarea>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="additional_info"></div>
             </div>
 
@@ -184,6 +214,7 @@
             <div class="mb-4">
                 <label class="form-label" for="inputCredit">Initial Credit</label>
                 <div class="input-group input-group-credit">
+                    <!-- Amount Input -->
                     <input
                         type="text"
                         name="credit"
@@ -196,11 +227,13 @@
                         placeholder="0.00"
                         required
                     >
+                    <!-- Currency Input -->
                     <select name="currency" id="selectCurrency" class="form-select" aria-label="Currency">
                         <option value="EUR">&euro;</option>
                         <option value="USD">&dollar;</option>
                     </select>
                 </div>
+                <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="credit"></div>
                 <div class="invalid-feedback" data-error-for="currency"></div>
             </div>
@@ -211,7 +244,10 @@
             </div>
         </form>
     </main>
+
+    <!-- Footer -->
     <footer class="container-fluid pt-5 pb-3">
+        <!-- Links -->
         <div class="row row-cols-3 justify-content-center text-center w-50 mx-auto">
             <div class="col">
                 <a href="#">F.A.Q.</a>
@@ -244,12 +280,15 @@
                 <a href="#">Credits</a>
             </div>
         </div>
+        <!-- Copyright -->
         <div class="row mt-1">
             <div class="col text-center">Copyright &copy 2026 - <span class="color-brand fw-bold">CO</span>DE</div>
         </div>
     </footer>
+    
     <!-- Bootstrap JS Import -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- JS Import -->
     <script type="module" src="js/register.js"></script>
 </body>
 </html>
