@@ -8,6 +8,13 @@ const registrationFormMap = bindForm(registrationForm);
 const selectCountry = document.getElementById('selectCountry') as HTMLSelectElement;
 const selectItalianMunicipality = document.getElementById('selectItalianMunicipality') as HTMLSelectElement;
 
+/* Input Date Value Updater */
+document.querySelectorAll<HTMLInputElement>('input[type="date"]').forEach(input => {
+    input.addEventListener('change', () => {
+        input.setAttribute('value', input.value);
+    });
+});
+
 selectCountry.addEventListener('input', () => {
     const value = selectCountry.value;
     selectItalianMunicipality.disabled = value !== COUNTRY_ITALY_ID;

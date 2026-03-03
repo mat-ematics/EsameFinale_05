@@ -5,6 +5,12 @@ const registrationForm = document.getElementById('formRegister');
 const registrationFormMap = bindForm(registrationForm);
 const selectCountry = document.getElementById('selectCountry');
 const selectItalianMunicipality = document.getElementById('selectItalianMunicipality');
+/* Input Date Value Updater */
+document.querySelectorAll('input[type="date"]').forEach(input => {
+    input.addEventListener('change', () => {
+        input.setAttribute('value', input.value);
+    });
+});
 selectCountry.addEventListener('input', () => {
     const value = selectCountry.value;
     selectItalianMunicipality.disabled = value !== COUNTRY_ITALY_ID;

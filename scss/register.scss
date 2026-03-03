@@ -1,5 +1,33 @@
+/* --- IMPORTS ---  */
+
 @use 'variables' as var;
 @forward 'variables';
+
+
+/* --- BOOTSTRAP OVERWRITES --- */
+
+/* Form Inputs */
+.form-control, .form-select {
+    background-color: var.$bg-dark-custom; //Default Color
+    border: 0; //No border
+    
+    //On focus
+    &:focus {
+        //Change Focus Ring Color
+        border-color: var.$focus-ring-brand-border;
+        box-shadow: var.$focus-ring-brand-shadow;
+    }
+}
+
+/* Form Label and Form Text */
+.form-label, .form-text {
+    color: var.$text-secondary-color;
+}
+
+
+/* --- ELEMENTS  --- */
+
+/* GENERAL */
 
 main {
     background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../media/images/register_background_banner.jpg");
@@ -7,51 +35,39 @@ main {
     background-position: 50% 50%;
 }
 
-.form-control, .form-select {
-    background-color: var.$bg-dark-custom;
-    border: 0;
-    
-    &:focus {
-        border-color: var.$focus-ring-brand-border;
-        box-shadow: var.$focus-ring-brand-shadow;
-    }
-}
-
-.form-check-input:checked, .checkbox-custom-color:checked {
-    background-color: #dc3545 !important;
-}
+/* SPECIFIC */
 
 #formRegister {
-    width: 95%;
+    width: 95%; //Width
     
+    //Width: 1200px and above
     @media screen and (min-width: 1200px) {
         width: 50%;
     }
-    
+    //Width: 768px - 1200px
     @media screen and (min-width: 768px) {
         width: 80%;
     }
 }
 
-.form-label, .form-text {
-    color: var.$text-secondary-color;
-}
-
+/* Input Credit Group (Credit Amount and Currency) */
 .input-group-credit {
 
+    //Normalize Size
     .form-control,
     .form-select {
         min-width: 0;
     }
 
+    //Input Credit Amount
     .form-control {
-        flex: 4 1 0%;
+        flex: 4 1 0%; //Grow 4 times basis, shrink normally
     }
 
     .form-select {
-        flex: 1 1 0%;
-        max-width: 90px;
-        margin-left: 0 !important;
-        border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+        flex: 1 1 0%; //Grow and shrink nomralyy
+        max-width: 90px; //Groth Cap
+        margin-left: 0 !important; //No Margin
+        border-left: var.$border-input-group-divider !important; //Divider
     }
 }
