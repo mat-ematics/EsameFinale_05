@@ -1,12 +1,49 @@
+/**
+ * Form Errors Module
+ * 
+ * Manages user-friendly error messages for form validation failures.
+ * Maps validation error codes to localized, descriptive error messages for each field.
+ */
+
+
+/* --- IMPORTS --- */
+
 import { FieldName } from "../types/registration_form_data.js";
 import { ValidationErrorCode } from "../validation/error_codes.js";
 
+
+/* --- TYPES & INTERFACES --- */
+
+/**
+ * Field Error Messages Type
+ * 
+ * A mapped type that defines error messages for each form field.
+ * Each field can have error messages for specific ValidationErrorCodes.
+ */
 export type FieldErrorMessages = {
     [K in FieldName]?: Partial<Record<ValidationErrorCode, string>>
 }
 
+
+/* --- CONSTANTS --- */
+
+/**
+ * Default Error Message
+ * 
+ * Fallback message used when a specific error message is not found.
+ * This ensures users always see some feedback, even for unexpected error codes.
+ */
 export const DEFAULT_ERROR_MESSAGE = 'Invalid Input';
 
+/**
+ * Field Error Messages Map
+ * 
+ * Centralized repository of all user-facing error messages.
+ * Maps each form field to its specific error messages for different validation failures.
+ * 
+ * Messages are written in clear, actionable language to help users understand and fix errors.
+ * Optional fields (locality, additional_info) have empty message maps as they're not required.
+ */
 export const FieldErrorMessagesMap: FieldErrorMessages = {
     name: {
         REQUIRED: "Name is required",
@@ -70,6 +107,21 @@ export const FieldErrorMessagesMap: FieldErrorMessages = {
     }
 } as const;
 
-export function getFieldErrorMessage(field: FieldName, errorCode?: ValidationErrorCode | null) : string  {
+/**
+ * Get Field Error Message
+ * 
+ * Retrieves the user-friendly error message for a validation failure.
+ * 
+ * Logic:
+ * 1. If an error code is provided, look up the message in FieldErrorMessagesMap
+ * 2. If the specific message exists, return it
+ * 3. If not found, return the DEFAULT_ERROR_MESSAGE as fallback
+ * 4. If no error code provided, return DEFAULT_ERROR_MESSAGE
+ * 
+ * @param field - The form field name
+ * @param errorCode - The validation error code (optional)
+ * @returns The user-friendly error message string
+ */
+export function getFieldErrorMessage(field: FieldName, errorCode?: ValidationErrorCode | null): string {
     return errorCode ? FieldErrorMessagesMap[field]?.[errorCode] ?? DEFAULT_ERROR_MESSAGE : DEFAULT_ERROR_MESSAGE;
 }
