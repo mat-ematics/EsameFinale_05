@@ -95,7 +95,8 @@ registrationForm.addEventListener("submit", e => {
     renderRegistrationForm(registrationFormMap, result);
 
     if (result.isValid) {
-        /* Send Form - TODO: Implement form submission logic (e.g., API call) */
+        //If valid redirect to login page
+        // window.location.replace('login.html');
     }
 });
 

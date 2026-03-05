@@ -53,20 +53,25 @@
         <form action="#" method="post" id="formRegister" class="bg-dark p-4 p-sm-5 rounded" novalidate>
 
             <!-- Form Title -->
-           <h3 class="text-center mb-4">Sign Up</h3>
+            <h3 class="text-center mb-4">Sign Up</h3>
+            
+            <!-- Required Indicator -->
+            <small class="d-block text-center mb-4 text-muted">
+                Fields marked with <span class="required-text">*</span> are required
+            </small>
 
             <!-- Name & Surname -->
             <div class="row mb-md-3">
                 <!-- Name -->
                 <div class="col-12 col-md-6 mb-3 mb-3 mb-md-0">
-                    <label class="form-label" for="inputName">Name</label>
+                    <label class="form-label" for="inputName">Name <span class="required-text">*</span></label>
                     <input type="text" name="name" id="inputName" class="form-control" placeholder="John" required>
                     <!-- Invalid Feedback -->
                     <div class="invalid-feedback" data-error-for="name"></div>
                 </div>
                 <!-- Surname -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
-                    <label class="form-label" for="inputSurname">Surname</label>
+                    <label class="form-label" for="inputSurname">Surname <span class="required-text">*</span></label>
                     <input type="text" name="surname" id="inputSurname" class="form-control" placeholder="Doe" required>
                     <!-- Invalid Feedback -->
                     <div class="invalid-feedback" data-error-for="surname"></div>
@@ -75,7 +80,7 @@
 
             <!-- Email -->
             <div class="mb-3">
-                <label class="form-label" for="inputEmail">E-mail</label>
+                <label class="form-label" for="inputEmail">E-mail <span class="required-text">*</span></label>
                 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="john.doe@example.com" required>
                 <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="email"></div>
@@ -83,7 +88,7 @@
 
             <!-- Username -->
             <div class="mb-3">
-                <label class="form-label" for="inputUsername">Username</label>
+                <label class="form-label" for="inputUsername">Username <span class="required-text">*</span></label>
                 <input
                     type="text"
                     name="username"
@@ -99,7 +104,7 @@
 
             <!-- Password -->
             <div class="mb-3">
-                <label class="form-label" for="inputPassword">Password</label>
+                <label class="form-label" for="inputPassword">Password <span class="required-text">*</span></label>
                 <input
                     type="password"
                     name="password"
@@ -119,7 +124,7 @@
 
             <!-- Birthdate -->
             <div class="mb-3">
-                <label class="form-label" for="inputBirthdate">Birthdate</label>
+                <label class="form-label" for="inputBirthdate">Birthdate <span class="required-text">*</span></label>
                 <input type="date" name="birthdate" id="inputBirthdate" class="form-control" required>
                 <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="birthdate"></div>
@@ -127,7 +132,7 @@
 
             <!-- Gender -->
             <div class="mb-3">
-                <label class="form-label" for="selectGender">Gender</label>
+                <label class="form-label" for="selectGender">Gender <span class="required-text">*</span></label>
                 <select name="gender" id="selectGender" class="form-select" required>
                     <option selected disabled hidden value="">Select Your Gender</option>
                     <option value="male">Male</option>
@@ -140,7 +145,7 @@
 
             <!-- Country -->
             <div class="mb-3">
-                <label class="form-label" for="selectCountry">Country</label>
+                <label class="form-label" for="selectCountry">Country <span class="required-text">*</span></label>
                 <select name="country_id" id="selectCountry" class="form-select" required>
                     <option selected disabled hidden value="">Select Your Country of Residence</option>
                     <option value="1">Italy</option>
@@ -165,7 +170,7 @@
 
             <!-- Address -->
             <div class="mb-3">
-                <label class="form-label" for="inputAddress">Street Address</label>
+                <label class="form-label" for="inputAddress">Street Address <span class="required-text">*</span></label>
                 <input type="text" name="street_address" id="inputAddress" class="form-control" placeholder="Main Street" required>
                 <!-- Invalid Feedback -->
                 <div class="invalid-feedback" data-error-for="street_address"></div>
@@ -175,14 +180,14 @@
             <div class="row mb-md-3">
                 <!-- House Number -->
                 <div class="col-12 col-md-6 mb-3 mb-3 mb-md-0">
-                    <label class="form-label" for="inputHouseNumber">House Number</label>
+                    <label class="form-label" for="inputHouseNumber">House Number <span class="required-text">*</span></label>
                     <input type="text" name="house_number" id="inputHouseNumber" class="form-control" placeholder="123" required>
                     <!-- Invalid Feedback -->
                     <div class="invalid-feedback" data-error-for="house_number"></div>
                 </div>
                 <!-- CAP -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
-                    <label class="form-label" for="inputCap">CAP</label>
+                    <label class="form-label" for="inputCap">CAP <span class="required-text">*</span></label>
                     <input type="text" name="cap" id="inputCap" class="form-control" placeholder="00000" required>
                     <!-- Invalid Feedback -->
                     <div class="invalid-feedback" data-error-for="cap"></div>
@@ -213,7 +218,7 @@
 
             <!-- Credit -->
             <div class="mb-4">
-                <label class="form-label" for="inputCredit">Initial Credit</label>
+                <label class="form-label" for="inputCredit">Initial Credit <span class="required-text">*</span></label>
                 <div class="input-group input-group-credit">
                     <!-- Amount Input -->
                     <input

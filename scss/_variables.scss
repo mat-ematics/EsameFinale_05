@@ -9,6 +9,7 @@ $header-bg-dark-custom: #212121;
 $footer-bg-dark-custom: $header-bg-dark-custom; //Same as Header
 /* Text */
 $text-secondary-color: rgb(108,117,125);
+$required-color: red;
 /* Brand */
 $brand-color: #ff0066;
 $brand-color-dark: color.adjust($brand-color, $lightness: -10%); //Darken by 10%
